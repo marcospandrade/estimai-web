@@ -1,9 +1,8 @@
-import { ReactNode } from 'react'
 import './globals.css'
-import { Inter } from 'next/font/google'
-import { ClerkProvider } from '@clerk/nextjs'
+import { Roboto_Flex as Roboto } from 'next/font/google'
+import { ReactNode } from 'react'
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
 
 export const metadata = {
   title: 'EstimAi',
@@ -12,12 +11,13 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body suppressHydrationWarning={true} className={inter.className}>
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body
+        suppressHydrationWarning={true}
+        className={`${roboto.variable} bg-gray-900 font-sans text-gray-100`}
+      >
+        {children}
+      </body>
+    </html>
   )
 }
