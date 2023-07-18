@@ -1,20 +1,37 @@
-export default function Login() {
-  return (
-    <div className="flex-1 p-10">
-      <a
-        href={`https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=${
-          process.env.NEXT_PUBLIC_JIRA_CLIENT_ID
-        }&scope=${
-          process.env.NEXT_PUBLIC_JIRA_SCOPES_REQUESTED
-        }&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fcallback&state=${crypto.randomUUID()}&response_type=code&prompt=consent`}
-        className="cursor-pointer items-center gap-3 rounded-lg border border-gray-50 px-4 py-2 text-left text-gray-50 transition-colors hover:text-gray-200"
-      >
-        LOGIN
-      </a>
-    </div>
-  )
+import Link from 'next/link'
+import { LoginHelper } from './helpers/login.helper'
+
+export default async function Login() {
+    const url = await LoginHelper.getLoginUrl()
+
+    return (
+        <div>
+            <div className="mx-auto w-full px-4 py-12 text-center sm:px-6 lg:px-8 lg:py-16">
+                <h2 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
+                    <span className="block">Welcome to EstimAi</span>
+                    <span className="block text-indigo-500">It's always time to improve team performance.</span>
+                </h2>
+                <p className="mx-auto mt-4 max-w-md text-xl text-gray-400">
+                    Come and see the future of estimation for activities!
+                </p>
+
+                <div className="lg:mt-0 lg:flex-shrink-0">
+                    <div className="mt-12 inline-flex rounded-md shadow">
+                        <Link
+                            href={url}
+                            className="w-full rounded-lg  bg-indigo-600 px-6 py-4 text-center text-base font-semibold text-white shadow-md transition duration-200 ease-in hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2  focus:ring-offset-indigo-200 "
+                        >
+                            Log in
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
 }
 
 // https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=${
-//   process.env.NEXT_PUBLIC_JIRA_CLIENT_ID
-// }&scope=read%3Ame&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fcallback&state=${crypto.randomUUID()}&response_type=code&prompt=consent`
+//     process.env.NEXT_PUBLIC_JIRA_CLIENT_ID
+// }&scope=${
+//     process.env.NEXT_PUBLIC_JIRA_SCOPES_REQUESTED
+// }&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fcallback&state=${crypto.randomUUID()}&response_type=code&prompt=consent
