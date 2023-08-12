@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
 
   const code = searchParams.get('code')
   const state = searchParams.get('state')
-  console.log('search params',searchParams)
+  console.log('search params', searchParams)
 
   // redirect to the URL
   // const redirectTo = request.cookies.get('redirectTo')?.value
@@ -15,6 +15,7 @@ export async function GET(request: NextRequest) {
     code,
     state,
   })
+
   const { token } = registerResponse.data
 
   const redirectUrl = new URL('/', request.url)
