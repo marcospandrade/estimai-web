@@ -1,5 +1,7 @@
-import { api } from '@/lib/api'
 import { NextRequest, NextResponse } from 'next/server'
+
+import { api } from '@/lib/api'
+import { User } from '@/models/User.model'
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
@@ -11,18 +13,17 @@ export async function GET(request: NextRequest) {
   // redirect to the URL
   // const redirectTo = request.cookies.get('redirectTo')?.value
 
-  const registerResponse = await api.post('auth/login', {
+  const { data } = await api.post<User>('auth/login', {
     code,
     state,
   })
 
-  const { token } = registerResponse.data
-
-  const redirectUrl = new URL('/', request.url)
+  const redirectUrl = new URL('/home', request.url)
   const cookieExpiresInSeconds = 60 * 60 * 24 * 30 // 30 days
+
   return NextResponse.redirect(redirectUrl, {
     headers: {
-      'Set-Cookie': `token=${token}; Path=/; max-age=${cookieExpiresInSeconds}`,
+      'Set-Cookie': `token=${data.accessTokenEstimai}; Path=/; max-age=${cookieExpiresInSeconds}`,
     },
   })
 }
