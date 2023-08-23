@@ -20,15 +20,13 @@ export function Hero() {
       </div>
       <div className="container relative mx-auto">
         <div className="flex flex-wrap items-center">
-          <div className="ml-auto mr-auto w-full px-4 text-center lg:w-6/12">
+          <div className="ml-auto mr-auto w-full px-4 text-center lg:w-10/12">
             <div className="pr-12">
               <h1 className="text-5xl font-semibold text-white">
-                Your story starts with us.
+                It&rsquo;s always time to improve performance.
               </h1>
               <p className="mt-4 text-lg text-gray-300">
-                This is a simple example of a Landing Page you can build using
-                Tailwind Starter Kit. It features multiple CSS components based
-                on the Tailwindcss design system.
+                Come and see the future of estimation for activities!
               </p>
             </div>
           </div>
