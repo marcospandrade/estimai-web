@@ -6,14 +6,14 @@ interface Props {
   transparent?: boolean
 }
 
-function Navbar(props: Props): ReactElement {
+export function Navbar(props: Props): ReactElement {
   const [navbarOpen, setNavbarOpen] = useState(false)
   return (
     <nav
       className={
         (props.transparent
           ? 'absolute top-0 z-50 w-full'
-          : 'relative bg-white shadow-lg') +
+          : 'relative bg-blue-300 shadow-lg') +
         ' flex flex-wrap items-center justify-between px-2 py-3 '
       }
     >
@@ -26,7 +26,7 @@ function Navbar(props: Props): ReactElement {
             }
             href="https://www.creative-tim.com/learning-lab/tailwind-starter-kit#/presentation"
           >
-            Tailwind Starter Kit
+            EstimAi
           </a>
           <button
             className="block cursor-pointer rounded border border-solid border-transparent bg-transparent px-3 py-1 text-xl leading-none outline-none focus:outline-none lg:hidden"
@@ -156,5 +156,3 @@ function Navbar(props: Props): ReactElement {
     </nav>
   )
 }
-
-export default Navbar
