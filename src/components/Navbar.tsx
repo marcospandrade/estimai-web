@@ -72,7 +72,7 @@ export function Navbar(props: Props): ReactElement {
                 className={
                   (props.transparent
                     ? 'bg-white text-gray-800 active:bg-gray-100'
-                    : 'bg-indigo-300 text-white active:bg-indigo-500') +
+                    : 'bg-red-700 text-white active:bg-red-300') +
                   ' mb-3 ml-3 rounded px-4 py-2 text-xs font-bold uppercase shadow outline-none hover:shadow-md focus:outline-none lg:mb-0 lg:mr-1'
                 }
                 type="button"
