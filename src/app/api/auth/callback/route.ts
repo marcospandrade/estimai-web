@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     state,
   })
 
-  const redirectUrl = new URL('/home', request.url)
+  const redirectUrl = new URL('/admin', request.url)
   const cookieExpiresInSeconds = 60 * 60 * 24 * 30 // 30 days
 
   return NextResponse.redirect(redirectUrl, {

@@ -6,6 +6,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 import { ThemeProvider } from '@material-tailwind/react'
 
 import './globals.css'
+import { AuthContextProvider } from '@/hooks/useAuth'
 
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
 
@@ -26,7 +27,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         suppressHydrationWarning={true}
         className={`${roboto.variable} bg-gray-900 font-sans text-gray-100`}
       >
-        {children}
+        <AuthContextProvider>
+          {children}
+        </AuthContextProvider>
       </body>
     </html>
   )
