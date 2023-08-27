@@ -26,9 +26,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className={`${roboto.variable} font-sans bg-gray-900 text-gray-100`}
       >
         {children}
-        <footer>
-          <Footer />
-        </footer>
       </body>
     </html>
   )

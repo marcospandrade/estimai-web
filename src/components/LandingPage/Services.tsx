@@ -1,8 +1,10 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
-import { EstimaiButton } from '../common/Button'
+import { CustomButton } from '../common/CustomButton'
 
 export function Services() {
   const { push } = useRouter()
@@ -67,7 +69,7 @@ export function Services() {
           </div>
         </div>
 
-        <div className="mt-32 flex flex-wrap items-center">
+        <div className="mt-24 flex flex-wrap items-center">
           <div className="ml-auto mr-auto w-full px-4 md:w-6/12">
             <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-white p-3 text-center text-gray-600 shadow-lg">
               <i className="fas fa-user-friends text-xl"></i>
@@ -86,9 +88,9 @@ export function Services() {
               you can streamline your estimation process and improve your
               team&rsquo;s performance.
             </p>
-            <EstimaiButton onClick={navigateToLogin}>
+            <CustomButton onClick={navigateToLogin}>
               Check EstimAi!
-            </EstimaiButton>
+            </CustomButton>
             <Link href="/login" className="mt-8 font-bold text-gray-800"></Link>
           </div>
 

@@ -6,7 +6,7 @@ interface ButtonProps {
   children: ReactNode
 }
 
-export function EstimaiButton({ onClick, children }: ButtonProps) {
+export function CustomButton({ onClick, children }: ButtonProps) {
   return (
     <button
       className="mb-3 rounded bg-red-700 px-5 py-3 text-xs font-bold uppercase text-white shadow outline-none hover:shadow-md focus:outline-none active:bg-red-300 lg:mb-0 lg:mr-1"
