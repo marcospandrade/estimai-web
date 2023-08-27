@@ -1,7 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+
+import { EstimaiButton } from '../common/Button'
 
 export function Services() {
+  const { push } = useRouter()
+
+  function navigateToLogin() {
+    return push('/login')
+  }
+
   return (
     <section className="-mt-24 bg-indigo-300 pb-20">
       <div className="container mx-auto px-4">
@@ -77,9 +86,10 @@ export function Services() {
               you can streamline your estimation process and improve your
               team&rsquo;s performance.
             </p>
-            <Link href="/login" className="mt-8 font-bold text-gray-800">
+            <EstimaiButton onClick={navigateToLogin}>
               Check EstimAi!
-            </Link>
+            </EstimaiButton>
+            <Link href="/login" className="mt-8 font-bold text-gray-800"></Link>
           </div>
 
           <div className="ml-auto mr-auto w-full px-4 md:w-4/12">
