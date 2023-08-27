@@ -19,7 +19,7 @@ export function Team() {
             <div className="px-6">
               <Image
                 alt="..."
-                src={require('../../assets/img/team-1-800x800.jpg')}
+                src={require('../../public/img/team-1-800x800.jpg')}
                 className="mx-auto max-w-full rounded-full shadow-lg"
                 style={{ maxWidth: '120px' }}
               />
@@ -55,7 +55,7 @@ export function Team() {
             <div className="px-6">
               <Image
                 alt="..."
-                src={require('../../assets/img/team-2-800x800.jpg')}
+                src={require('../../public/img/team-2-800x800.jpg')}
                 className="mx-auto max-w-full rounded-full shadow-lg"
                 style={{ maxWidth: '120px' }}
               />
@@ -85,7 +85,7 @@ export function Team() {
             <div className="px-6">
               <Image
                 alt="..."
-                src={require('../../assets/img/team-3-800x800.jpg')}
+                src={require('../../public/img/team-3-800x800.jpg')}
                 className="mx-auto max-w-full rounded-full shadow-lg"
                 style={{ maxWidth: '120px' }}
               />
@@ -121,7 +121,7 @@ export function Team() {
             <div className="px-6">
               <Image
                 alt="..."
-                src={require('../../assets/img/team-4-470x470.png')}
+                src={require('../../public/img/team-4-470x470.png')}
                 className="mx-auto max-w-full rounded-full shadow-lg"
                 style={{ maxWidth: '120px' }}
               />
