@@ -3,7 +3,6 @@ import { Roboto_Flex as Roboto } from 'next/font/google'
 import { ReactNode } from 'react'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
-import Footer from '@/components/Footer'
 import './globals.css'
 
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })

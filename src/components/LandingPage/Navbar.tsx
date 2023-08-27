@@ -1,13 +1,19 @@
 'use client'
 
 import React, { ReactElement, useState } from 'react'
-
+import { useRouter } from 'next/navigation'
 interface Props {
   transparent?: boolean
 }
 
 export function Navbar(props: Props): ReactElement {
   const [navbarOpen, setNavbarOpen] = useState(false)
+  const { push } = useRouter()
+
+  function navigateToLogin() {
+    return push('/login')
+  }
+
   return (
     <nav
       className={
@@ -77,8 +83,9 @@ export function Navbar(props: Props): ReactElement {
                 }
                 type="button"
                 style={{ transition: 'all .15s ease' }}
+                onClick={navigateToLogin}
               >
-                Sign In{' '}
+                Sign In
                 <i className="fa fa-sign-in ml-2" aria-hidden="true"></i>
               </button>
             </li>
