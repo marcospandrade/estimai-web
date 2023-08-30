@@ -7,5 +7,9 @@ interface AppLayoutProps {
 }
 
 export function AppLayout({ children }: AppLayoutProps) {
-  return <ThemeProvider>{children}</ThemeProvider>
+  return (
+    <ThemeProvider>
+      <div className="bg-gray-50">{children}</div>
+    </ThemeProvider>
+  )
 }
