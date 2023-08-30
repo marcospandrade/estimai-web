@@ -6,7 +6,8 @@ const nextConfig = {
       '192.168.0.102',
       'localhost',
       'images.unsplash.com',
-      'secure.gravatar.com'
+      'secure.gravatar.com',
+      'encrypted-tbn0.gstatic.com'
     ],
   },
 }
