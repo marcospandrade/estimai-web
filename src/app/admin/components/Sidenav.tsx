@@ -1,16 +1,14 @@
 'use client'
 
-import PropTypes from 'prop-types'
-import { Avatar, Button, IconButton, Typography } from '@/lib/material'
 import Link from 'next/link'
-import { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClose } from '@fortawesome/free-solid-svg-icons'
-import { Route } from '../page'
 import { usePathname, useRouter } from 'next/navigation'
-import Image from 'next/image'
 
-// import { useMaterialTailwindController, setOpenSidenav } from "@/context";
+import { useState } from 'react'
+import { faClose } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { Avatar, Button, IconButton, Typography } from '@/lib/material'
+import { Route } from '../page'
 
 interface SidenavProps {
   brandImg: string
@@ -19,19 +17,11 @@ interface SidenavProps {
 }
 
 export function Sidenav({ brandImg, brandName, routes }: SidenavProps) {
-  //   const [controller, dispatch] = useMaterialTailwindController();
-  //   const { sidenavColor, sidenavType, openSidenav } = controller;
-
   const pathName = usePathname()
   const { push } = useRouter()
 
   console.log()
   const [openSideNav, setOpenSideNav] = useState(true)
-  const sidenavTypes = {
-    dark: 'bg-gradient-to-br from-blue-gray-800 to-blue-gray-900',
-    white: 'bg-white shadow-lg',
-    transparent: 'bg-transparent',
-  }
 
   function isActiveRoute(routePath: string) {
     return pathName === routePath
