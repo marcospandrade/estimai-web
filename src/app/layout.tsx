@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </head>
 
-      <body suppressHydrationWarning={true} className={`${roboto.variable} bg-gray-900 font-sans text-gray-100`}>
+      <body suppressHydrationWarning={true} className={`${roboto.variable} bg-gray-900 font-sans`}>
         <AuthContextProvider>{children}</AuthContextProvider>
       </body>
     </html>

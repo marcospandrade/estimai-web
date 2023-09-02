@@ -6,17 +6,16 @@ import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { routes } from '@/helpers/app.routes'
 
 import { Avatar, Button, IconButton, Typography } from '@/lib/material'
-import { Route } from '../page'
 
 interface SidenavProps {
   brandImg: string
   brandName: string
-  routes: Route[]
 }
 
-export function Sidenav({ brandImg, brandName, routes }: SidenavProps) {
+export function Sidenav({ brandImg, brandName }: SidenavProps) {
   const pathName = usePathname()
   const { push } = useRouter()
 
@@ -33,7 +32,7 @@ export function Sidenav({ brandImg, brandName, routes }: SidenavProps) {
 
   return (
     <aside
-      className={`bg-gradient-to-br from-blue-gray-800 to-blue-gray-900 ${
+      className={`bg-gradient-to-br from-indigo-500 to-indigo-600 ${
         openSideNav ? 'translate-x-0' : '-translate-x-80'
       } fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0`}
     >
@@ -65,16 +64,15 @@ export function Sidenav({ brandImg, brandName, routes }: SidenavProps) {
           {routes.map((route) => (
             <li key={route.path} className="mx-3.5 mt-4 mb-2">
               <Button
-                variant={isActiveRoute(route.path) ? 'gradient' : 'text'}
-                color={isActiveRoute(route.path) ? 'white' : 'blue-gray'}
-                className="flex items-center gap-4 px-4 capitalize"
+                variant="text"
+                className={`flex items-center gap-4 px-4 capitalize ${
+                  isActiveRoute(route.path) ? 'bg-red-600 hover:bg-red-500' : 'bg-transparent'
+                }`}
                 fullWidth
                 onClick={() => changeRoute(route.path)}
               >
-                <FontAwesomeIcon icon={route.icon} size="sm" />
-                <Typography color="inherit" className="font-medium capitalize">
-                  {route.name}
-                </Typography>
+                <FontAwesomeIcon icon={route.icon} size="1x" className="text-white" />
+                <Typography className="font-medium capitalize text-white">{route.name}</Typography>
               </Button>
             </li>
           ))}
