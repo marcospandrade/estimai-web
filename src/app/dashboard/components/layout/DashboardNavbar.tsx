@@ -53,9 +53,6 @@ export function DashboardNavbar() {
                 <Link href="dashboard/profile">
                   <FontAwesomeIcon icon={faSignOut} className="h-5 w-5 mr-2 text-inherit" />
                   Logout
-                  <IconButton variant="text" color="indigo" className="grid ">
-                    <FontAwesomeIcon icon={faPerson} className="h-5 w-5 text-white" />
-                  </IconButton>
                 </Link>
               </MenuItem>
             </MenuList>
