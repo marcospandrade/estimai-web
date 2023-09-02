@@ -1,8 +1,7 @@
 'use client'
 
-import { getUser } from '@/lib/auth'
 import { User } from '@/models/User.model'
-import { ReactNode, createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { ReactNode, createContext, useContext, useMemo, useState } from 'react'
 
 interface AuthContextData {
   user: User | null
@@ -17,7 +16,6 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 
 function AuthContextProvider({ children }: AuthContextProviderProps) {
   const [user, setUser] = useState<User | null>(null)
-  console.log('HOOK USE AUTH', user)
 
   function setUserInfo(user: User) {
     return setUser(user)

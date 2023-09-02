@@ -19,7 +19,6 @@ export function Sidenav({ brandImg, brandName }: SidenavProps) {
   const pathName = usePathname()
   const { push } = useRouter()
 
-  console.log()
   const [openSideNav, setOpenSideNav] = useState(true)
 
   function isActiveRoute(routePath: string) {
