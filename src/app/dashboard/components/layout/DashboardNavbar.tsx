@@ -27,7 +27,7 @@ export function DashboardNavbar() {
       <div className="flex flex-col-reverse justify-between gap-6 md:flex-row md:items-center">
         <div className="capitalize">
           <Typography variant="h5" color="white">
-            {pathName}
+            {pathName ?? ''}
           </Typography>
         </div>
         <div className="flex items-center">
@@ -36,7 +36,7 @@ export function DashboardNavbar() {
               <Button variant="text" className="flex flex-row justify-center items-center">
                 <Avatar src={user?.picture} width={10} height={10} />
                 <Typography variant="h6" color="white" className="ml-4">
-                  {user?.name.split(' ')[0]}
+                  {user?.name.split(' ')[0] ?? ''}
                 </Typography>
               </Button>
             </MenuHandler>

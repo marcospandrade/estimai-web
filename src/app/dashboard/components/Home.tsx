@@ -19,7 +19,6 @@ export function Home({ userLogged }: HomeProps) {
     <>
       <h1>HOME HOME</h1>
       <div>Olá, {user?.name}</div>
-      <Image src={user?.picture ?? ''} width={100} height={100} alt="profile picture" />
     </>
   )
 }

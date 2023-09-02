@@ -44,7 +44,7 @@ export function Sidenav({ brandImg, brandName }: SidenavProps) {
             alt="Logo"
           />
           <Typography variant="h6" color="white">
-            {brandName}
+            {brandName ?? 'EstimAi'}
           </Typography>
         </Link>
         <IconButton
