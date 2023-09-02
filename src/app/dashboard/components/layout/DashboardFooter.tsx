@@ -4,7 +4,7 @@ const defaultProps = {
   brandName: 'EstimAi',
   brandLink: 'https://github.com/marcospandrade/estimai-web',
   routes: [
-    { name: 'Home', path: 'https://localhost:3000' },
+    { name: 'Home', path: 'https://localhost:3000/dashboard' },
     { name: 'Repo', path: 'https://github.com/marcospandrade/estimai-web' },
   ],
 }
@@ -20,7 +20,7 @@ interface FooterProps {
   routes?: Route[]
 }
 
-export function AdminFooter({
+export function DashboardFooter({
   brandName = defaultProps.brandName,
   brandLink = defaultProps.brandLink,
   routes = defaultProps.routes,
