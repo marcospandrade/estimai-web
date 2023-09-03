@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 
@@ -8,7 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { Navbar, Typography, Button, Avatar, Menu, MenuHandler, MenuList, MenuItem } from '@/lib/material'
 import { useAuth } from '@/hooks/useAuth'
-import { useEffect } from 'react'
 import { useModal } from '@/hooks/useModal'
 import { LoginHelper } from '@/app/login/helpers/login.helper'
 
