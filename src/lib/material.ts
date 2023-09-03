@@ -13,6 +13,10 @@ import {
   MenuHandler,
   MenuList,
   MenuItem,
+  Dialog,
+  DialogBody,
+  DialogHeader,
+  DialogFooter,
 } from '@material-tailwind/react'
 
 export {
@@ -28,4 +32,8 @@ export {
   MenuHandler,
   MenuList,
   MenuItem,
+  Dialog,
+  DialogBody,
+  DialogHeader,
+  DialogFooter,
 }

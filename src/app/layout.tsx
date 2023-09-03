@@ -8,6 +8,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import './globals.css'
 import { AuthContextProvider } from '@/hooks/useAuth'
+import { ModalContextProvider } from '@/hooks/useModal'
 
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
 
@@ -25,7 +26,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
 
       <body suppressHydrationWarning={true} className={`${roboto.variable} bg-gray-900 font-sans`}>
-        <AuthContextProvider>{children}</AuthContextProvider>
+        <AuthContextProvider>
+          <ModalContextProvider>{children}</ModalContextProvider>
+        </AuthContextProvider>
       </body>
     </html>
   )
