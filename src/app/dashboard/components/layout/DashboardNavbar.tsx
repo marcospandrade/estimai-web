@@ -3,20 +3,43 @@
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 
-import { faPerson, faSignOut } from '@fortawesome/free-solid-svg-icons'
+import { faSignOut } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { Navbar, Typography, IconButton, Button, Avatar, Menu, MenuHandler, MenuList, MenuItem } from '@/lib/material'
+import { Navbar, Typography, Button, Avatar, Menu, MenuHandler, MenuList, MenuItem } from '@/lib/material'
 import { useAuth } from '@/hooks/useAuth'
+import { useEffect } from 'react'
+import { useModal } from '@/hooks/useModal'
+import { LoginHelper } from '@/app/login/helpers/login.helper'
 
 export function DashboardNavbar() {
-  const { user } = useAuth()
-  const { push } = useRouter()
+  const { user, getUserDetails } = useAuth()
+  const { push, replace } = useRouter()
+  const { defineModal } = useModal()
   const pathName = usePathname().split('/').pop()
 
-  function onLogout() {
-    push('/')
+  async function onLogout() {
+    // const what = await localApi.get('api/auth/user')
+    // console.log('API CALL', what)
   }
+
+  useEffect(() => {
+    async function getUser() {
+      try {
+        await getUserDetails()
+      } catch (error) {
+        defineModal({
+          title: 'Unauthorized',
+          text: "You'll need to refresh your credentials",
+          handleConfirm: () => replace(LoginHelper.getLoginUrl()),
+          handleCancel: () => push('/'),
+          buttonConfirmText: 'Login',
+        })
+      }
+    }
+
+    getUser()
+  }, [])
 
   return (
     <Navbar
@@ -35,9 +58,7 @@ export function DashboardNavbar() {
             <MenuHandler>
               <Button variant="text" className="flex flex-row justify-center items-center">
                 <Avatar src={user?.picture} width={10} height={10} />
-                <Typography variant="h6" color="white" className="ml-4">
-                  {user?.name.split(' ')[0] ?? ''}
-                </Typography>
+                <p className="capitalize ml-4 text-base font-thin text-white">{user?.name.split(' ')[0] ?? ''}</p>
               </Button>
             </MenuHandler>
             <MenuList className="w-max border-0">

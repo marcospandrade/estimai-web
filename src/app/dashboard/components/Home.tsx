@@ -2,7 +2,6 @@
 
 import { useAuth } from '@/hooks/useAuth'
 import { User } from '@/models/User.model'
-import Image from 'next/image'
 import { useEffect } from 'react'
 
 interface HomeProps {

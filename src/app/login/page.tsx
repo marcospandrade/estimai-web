@@ -2,16 +2,14 @@ import Link from 'next/link'
 import { LoginHelper } from './helpers/login.helper'
 
 export default async function Login() {
-  const url = await LoginHelper.getLoginUrl()
+  const url = LoginHelper.getLoginUrl()
 
   return (
     <div>
       <div className="mx-auto w-full px-4 py-12 text-center sm:px-6 lg:px-8 lg:py-16">
         <h2 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
           <span className="block">Welcome to EstimAi</span>
-          <span className="block text-indigo-500">
-            It&rsquo;s always time to improve team performance.
-          </span>
+          <span className="block text-indigo-500">It&rsquo;s always time to improve team performance.</span>
         </h2>
         <p className="mx-auto mt-4 max-w-md text-xl text-gray-400">
           Come and see the future of estimation for activities!
