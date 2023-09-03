@@ -1,5 +1,5 @@
 export class LoginHelper {
-  static async getLoginUrl() {
+  static getLoginUrl() {
     const loginUrl = `https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=${
       process.env.NEXT_PUBLIC_JIRA_CLIENT_ID
     }&scope=${
