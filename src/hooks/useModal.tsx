@@ -6,8 +6,11 @@ import { CustomModal } from '@/components/common/CustomModal'
 
 export interface ModalProps {
   title: string
-  text: string
+  text?: string
+  buttonConfirmText?: string
+  buttonCancelText?: string
   handleConfirm: () => void
+  handleCancel?: () => void
 }
 
 interface ModalContextData {

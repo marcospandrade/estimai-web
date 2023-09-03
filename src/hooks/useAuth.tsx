@@ -1,11 +1,13 @@
 'use client'
 
+import { localApi } from '@/lib/api'
 import { User } from '@/models/User.model'
 import { ReactNode, createContext, useContext, useMemo, useState } from 'react'
 
 interface AuthContextData {
   user: User | null
   setUserInfo: (user: User) => void
+  getUserDetails: () => Promise<void>
 }
 
 interface AuthContextProviderProps {
@@ -21,10 +23,23 @@ function AuthContextProvider({ children }: AuthContextProviderProps) {
     return setUser(user)
   }
 
+  async function getUserDetails() {
+    try {
+      const { data } = await localApi.get<User>('api/auth/user')
+
+      if (data) {
+        setUser(data)
+      }
+    } catch (error: any) {
+      throw new Error(error?.message ?? 'Error getting user in AuthContext')
+    }
+  }
+
   const contextData: AuthContextData = useMemo(
     () => ({
       user,
       setUserInfo,
+      getUserDetails,
     }),
     [user]
   )

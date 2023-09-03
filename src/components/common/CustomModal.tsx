@@ -8,16 +8,20 @@ interface SignInModalProps {
 }
 
 export function CustomModal({ isOpen, modalData, openModal }: SignInModalProps) {
+  function handleCancelModal() {
+    modalData.handleCancel?.()
+    openModal()
+  }
   return (
-    <Dialog open={isOpen} handler={openModal}>
-      <DialogHeader>{modalData.title}</DialogHeader>
-      <DialogBody divider>{modalData.text}</DialogBody>
+    <Dialog open={isOpen} handler={openModal} dismiss={{ enabled: false }}>
+      <DialogHeader>{modalData.title ?? 'Title'}</DialogHeader>
+      {modalData.text && <DialogBody divider>{modalData.text}</DialogBody>}
       <DialogFooter>
-        <Button variant="text" color="red" onClick={openModal} className="mr-1">
-          <span>Cancel</span>
+        <Button variant="text" color="red" onClick={handleCancelModal} className="mr-1">
+          <span>{modalData.buttonCancelText ?? 'Cancel'}</span>
         </Button>
         <Button variant="gradient" color="green" onClick={modalData.handleConfirm}>
-          <span>Confirm</span>
+          <span>{modalData.buttonConfirmText ?? 'Confirm'}</span>
         </Button>
       </DialogFooter>
     </Dialog>
