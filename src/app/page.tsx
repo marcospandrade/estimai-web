@@ -4,8 +4,8 @@ import { Featured } from '@/components/LandingPage/Featured'
 // import { Team } from '@/components/LandingPage/Team'
 // import { Finisher } from '@/components/LandingPage/Finisher'
 import { Contact } from '@/components/LandingPage/Contact'
-import { Navbar } from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import { Navbar } from '@/components/LandingPage/Navbar'
+import { Footer } from '@/components/LandingPage/Footer'
 
 const IndexPage = () => (
   <>

@@ -1,9 +1,9 @@
 'use client'
 
 import React, { ReactElement } from 'react'
-import { FabIcon } from './common/FabButton'
+import { FabIcon } from '../common/FabButton'
 
-function Footer(): ReactElement {
+export function Footer(): ReactElement {
   return (
     <footer className="relative bg-indigo-700 pb-6 pt-8">
       <div
@@ -93,5 +93,3 @@ function Footer(): ReactElement {
     </footer>
   )
 }
-
-export default Footer

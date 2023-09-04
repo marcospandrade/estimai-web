@@ -2,16 +2,14 @@ import Link from 'next/link'
 import { LoginHelper } from './helpers/login.helper'
 
 export default async function Login() {
-  const url = await LoginHelper.getLoginUrl()
+  const url = LoginHelper.getLoginUrl()
 
   return (
     <div>
       <div className="mx-auto w-full px-4 py-12 text-center sm:px-6 lg:px-8 lg:py-16">
         <h2 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
           <span className="block">Welcome to EstimAi</span>
-          <span className="block text-indigo-500">
-            It&rsquo;s always time to improve team performance.
-          </span>
+          <span className="block text-indigo-500">It&rsquo;s always time to improve team performance.</span>
         </h2>
         <p className="mx-auto mt-4 max-w-md text-xl text-gray-400">
           Come and see the future of estimation for activities!
@@ -31,9 +29,3 @@ export default async function Login() {
     </div>
   )
 }
-
-// https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=${
-//     process.env.NEXT_PUBLIC_JIRA_CLIENT_ID
-// }&scope=${
-//     process.env.NEXT_PUBLIC_JIRA_SCOPES_REQUESTED
-// }&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fcallback&state=${crypto.randomUUID()}&response_type=code&prompt=consent

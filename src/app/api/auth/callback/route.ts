@@ -11,17 +11,18 @@ export async function GET(request: NextRequest) {
   console.log('search params', searchParams)
 
   // redirect to the URL
-  // const redirectTo = request.cookies.get('redirectTo')?.value
+  const redirectTo = request.cookies.get('redirectTo')?.value
 
   const { data } = await api.post<User>('auth/login', {
     code,
     state,
   })
 
-  const redirectUrl = new URL('/home', request.url)
+  const redirectURL = redirectTo ?? new URL('/dashboard', request.url)
+
   const cookieExpiresInSeconds = 60 * 60 * 24 * 30 // 30 days
 
-  return NextResponse.redirect(redirectUrl, {
+  return NextResponse.redirect(redirectURL, {
     headers: {
       'Set-Cookie': `token=${data.accessTokenEstimai}; Path=/; max-age=${cookieExpiresInSeconds}`,
     },
