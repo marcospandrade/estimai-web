@@ -8,6 +8,7 @@ interface AuthContextData {
   user: User | null
   setUserInfo: (user: User) => void
   getUserDetails: () => Promise<void>
+  handleLogout: () => Promise<void>
 }
 
 interface AuthContextProviderProps {
@@ -35,13 +36,19 @@ function AuthContextProvider({ children }: AuthContextProviderProps) {
     }
   }
 
+  async function handleLogout() {
+    await localApi.get<User>('api/auth/logout')
+    setUser(null)
+  }
+
   const contextData: AuthContextData = useMemo(
     () => ({
       user,
       setUserInfo,
       getUserDetails,
+      handleLogout,
     }),
-    [user]
+    [setUserInfo, handleLogout]
   )
 
   return <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>

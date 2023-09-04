@@ -13,14 +13,18 @@ import { useModal } from '@/hooks/useModal'
 import { LoginHelper } from '@/app/login/helpers/login.helper'
 
 export function DashboardNavbar() {
-  const { user, getUserDetails } = useAuth()
+  const { user, getUserDetails, handleLogout } = useAuth()
   const { push, replace } = useRouter()
   const { defineModal } = useModal()
   const pathName = usePathname().split('/').pop()
 
   async function onLogout() {
-    // const what = await localApi.get('api/auth/user')
-    // console.log('API CALL', what)
+    try {
+      await handleLogout()
+      push('/')
+    } catch (error: any) {
+      throw new Error(error.message ?? 'Error trying to logout')
+    }
   }
 
   useEffect(() => {
@@ -38,7 +42,9 @@ export function DashboardNavbar() {
       }
     }
 
-    getUser()
+    if (!user) {
+      getUser()
+    }
   }, [])
 
   return (
