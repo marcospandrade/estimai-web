@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-import { api } from '@/lib/api'
+import { GenericHttpResponse, api } from '@/lib/api'
 import { User } from '@/models/User.model'
 
 export async function GET(request: NextRequest) {
@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
   // redirect to the URL
   const redirectTo = request.cookies.get('redirectTo')?.value
 
-  const { data } = await api.post<User>('auth/login', {
+  const { data } = await api.post<GenericHttpResponse<User>>('auth/login', {
     code,
     state,
   })
@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
 
   return NextResponse.redirect(redirectURL, {
     headers: {
-      'Set-Cookie': `token=${data.accessTokenEstimai}; Path=/; max-age=${cookieExpiresInSeconds}`,
+      'Set-Cookie': `token=${data.response.accessTokenEstimai}; Path=/; max-age=${cookieExpiresInSeconds}`,
     },
   })
 }
